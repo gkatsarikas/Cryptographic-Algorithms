@@ -1,13 +1,17 @@
-# Define the compiler and the flags
 CC = gcc
 CFLAGS = -Wall -Wextra -pedantic -std=c11
 
-default: all
+TARGETS = caesar vigenere
 
-all: caesar
+all: $(TARGETS)
 
 caesar: caesar.c
 	$(CC) $(CFLAGS) -o caesar caesar.c
 
+vigenere: vigenere.c
+	$(CC) $(CFLAGS) -o vigenere vigenere.c
+
 clean:
-	rm -f caesar
+	rm -f $(TARGETS)
+
+.PHONY: all clean
